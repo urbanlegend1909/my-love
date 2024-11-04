@@ -32,8 +32,8 @@ body {
 .cardFront {
     position: relative;
     background: linear-gradient(145deg, #ffddc1, #ffc1e3);
-    width: 300px;
-    height: 450px;
+    width: 315px;
+    height: 470px;
     overflow: hidden;
     transform-origin: left;
     box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2), 30px 0 50px rgba(0,0,0,0.4);
@@ -78,28 +78,28 @@ body {
 
 .balloon1 {
     background-color: rgba(255, 40, 90, 0.7);
-    left: 17px;
+    left: 25px;
     top: 50px;
     animation-delay: 0s;
 }
 
 .balloon2 {
     background-color: rgba(9, 215, 160, 0.7);
-    left: 77px;
+    left: 85px;
     top: 20px;
     animation-delay: 0.5s;
 }
 
 .balloon3 {
     background-color: rgba(255, 186, 26, 0.7);
-    left: 137px;
+    left: 145px;
     top: 50px;
     animation-delay: 1s;
 }
 
 .balloon4 {
     background-color: rgba(12, 122, 159, 0.7);
-    left: 197px;
+    left: 205px;
     top: 50px;
     animation-delay: 1.5s;
 }
@@ -120,8 +120,8 @@ body {
 .cardInside {
     position: absolute;
     background-color: #fff;
-    width: 300px;
-    height: 450px;
+    width: 315px;
+    height: 470px;
     z-index: -1;
     left: 0;
     top: 0;
