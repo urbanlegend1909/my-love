@@ -1,0 +1,214 @@
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000; /* Initial dark room background */
+    transition: background-color 2.5s ease; /* Slower transition for mode change */
+    overflow: hidden;
+    font-family: sans-serif;
+    margin: 0;
+    position: relative;
+}
+
+body.light-room {
+    background: linear-gradient(135deg, #ffd1dc, #ff9a9e); /* Gradient for light room */
+}
+
+/* LED Strip styling */
+.led-strip {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 30px;
+    display: none; /* Hidden initially */
+    justify-content: space-around;
+    opacity: 0; /* Start with opacity 0 for smooth fade-in */
+    transition: opacity 2.5s ease; /* Slower fade-in for LED lights */
+}
+
+body.light-room .led-strip {
+    display: flex;
+    opacity: 1; /* Visible in light room mode */
+}
+
+/* Bulb styling with smoother color transitions */
+.bulb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff6666;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+    animation: smoothColorCycle 3s linear infinite; /* Slower and smoother color cycle */
+}
+
+.bulb:nth-child(2) { animation-delay: 0.3s; }
+.bulb:nth-child(3) { animation-delay: 0.6s; }
+.bulb:nth-child(4) { animation-delay: 0.9s; }
+.bulb:nth-child(5) { animation-delay: 1.2s; }
+
+/* Smoother color cycling animation */
+@keyframes smoothColorCycle {
+    0% { background-color: #ff6666; }
+    25% { background-color: #ff9a9e; }
+    50% { background-color: #ffd1dc; }
+    75% { background-color: #ffb6c1; }
+    100% { background-color: #ff80ab; }
+}
+
+/* Centered gift box */
+.giftContainer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Gift box styling */
+.gift {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-color: #e9c46a;
+    transition: transform 1s ease; /* Slower transition for box */
+}
+
+.gift::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 100px;
+    background-color: #e76f51;
+    left: 62px;
+}
+
+.gift::after {
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    height: 100px;
+}
+
+#click {
+    display: none;
+}
+
+.click {
+    position: absolute;
+    background-color: #e9c46a;
+    width: 170px;
+    height: 40px;
+    top: -40px;
+    left: -10px;
+    transform-origin: bottom left;
+    transition: 1s ease; /* Slower box lid opening */
+    cursor: pointer;
+}
+
+.click::before {
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 40px;
+    background-color: #e76f51;
+    left: 72px;
+}
+
+.click::after {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 0px;
+    border-bottom: 30px solid #e76f51;
+    border-top: 30px solid #e76f51;
+    border-left: 0px solid transparent;
+    border-right: 30px solid transparent;
+    transform: rotate(-90deg);
+    left: 65px;
+    top: -47px;
+}
+
+#click:checked + .click {
+    transform: rotate(-110deg) scale(0.85);
+}
+
+.wishes {
+    position: absolute;
+    transition: transform 1s ease, opacity 1s ease; /* Slower GIF pop-up */
+    width: 100px;
+    height: auto;
+    transform: translateY(0px);
+    opacity: 0;
+    z-index: -1;
+    left: 15px;
+}
+
+#click:checked ~ .wishes {
+    transform: translateY(-150px); /* Increased movement distance */
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Scattered images container */
+.scattered-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Individual scattered image styles */
+.scattered-image {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    transition: transform 0.4s ease, opacity 0.3s ease; /* Faster zoom effect */
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    opacity: 0;
+    animation: float 4s infinite alternate ease-in-out, fadeIn 2s ease forwards, zoomIn 0.6s ease;
+}
+
+/* Ensure image 1 shows fully */
+.img1 {
+    top: 10%;
+    left: 10%;
+    transform: rotate(-15deg); /* Increased angle for more rotation */
+    object-position: top; /* Show top part of image fully */
+}
+
+/* Adjusted positions and angles for other images */
+.img2 { top: 15%; right: 15%; transform: rotate(20deg); }
+.img3 { bottom: 5%; left: 30%; transform: rotate(-20deg); }
+.img4 { bottom: 20%; right: 10%; transform: rotate(15deg); }
+.img5 { top: 65%; left: 10%; transform: rotate(10deg); }
+.img6 { bottom: 5%; right: 20%; transform: rotate(-25deg); }
+
+/* Increased movement on hover */
+.scattered-image:hover {
+    transform: scale(1.2) translateY(-10px) rotate(5deg); /* Slightly larger and faster movement */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+/* Faster and more angled floating animation */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-15px) rotate(-5deg); } /* Increased angle and speed */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+}
