@@ -1,0 +1,198 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #239ac2;
+}
+
+.birthdayCard {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 2500px;
+    transition: 1s;
+}
+
+.birthdayCard:hover {
+    transform: perspective(2500px) rotateY(5deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2), 0 10px 100px rgba(0,0,0,0.5);
+}
+
+.birthdayCard:hover .cardFront {
+    transform: rotateY(-160deg);
+}
+
+.birthdayCard:hover .happy {
+    visibility: hidden;
+}
+
+.cardFront {
+    position: relative;
+    background: linear-gradient(145deg, #ffddc1, #ffc1e3);
+    width: 300px;
+    height: 450px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2), 30px 0 50px rgba(0,0,0,0.4);
+    transition: 0.6s;
+}
+
+.happy {
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+    margin: 30px;
+    background: linear-gradient(120deg, #ff9aa2, #ffb7b2, #ffda77);
+    transition: 0.1s;
+}
+
+.balloons {
+    position: absolute;
+}
+
+/* Floating animation for the balloons */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.balloon1,
+.balloon2,
+.balloon3,
+.balloon4 {
+    position: absolute;
+    width: 85px;
+    height: 95px;
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon1 {
+    background-color: rgba(255, 40, 90, 0.7);
+    left: 17px;
+    top: 50px;
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    background-color: rgba(9, 215, 160, 0.7);
+    left: 77px;
+    top: 20px;
+    animation-delay: 0.5s;
+}
+
+.balloon3 {
+    background-color: rgba(255, 186, 26, 0.7);
+    left: 137px;
+    top: 50px;
+    animation-delay: 1s;
+}
+
+.balloon4 {
+    background-color: rgba(12, 122, 159, 0.7);
+    left: 197px;
+    top: 50px;
+    animation-delay: 1.5s;
+}
+
+.balloon1::before,
+.balloon2::before,
+.balloon3::before,
+.balloon4::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 155px;
+    background-color: #ffc848;
+    top: 95px;
+    left: 43px;
+}
+
+.cardInside {
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    height: 450px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+}
+
+/* Styling for the card inside text */
+.animatedText {
+    font-family: 'Brush Script MT', cursive;
+    color: #ff6363;
+    text-align: center;
+    margin: 30px;
+    font-size: 20px;
+    animation: fadeIn 2s ease-in-out;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+/* Text Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animatedText {
+    font-family: 'Brush Script MT', cursive;
+    color: #ff6363;
+    text-align: center;
+    margin: 30px;
+    font-size: 20px;
+    animation: fadeIn 2s ease-in-out forwards; /* forwards keeps the final state */
+    animation-delay: 1s;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+
+p.animatedText {
+    color: #333;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 20px;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 1.5s;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+button {
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+    background-color: #ffb6c1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff8c94;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    left: 10px;
+}
