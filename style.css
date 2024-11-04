@@ -1,0 +1,56 @@
+/* Theme-inspired background color */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #239ac2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Centered login box styling */
+.login-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Adjusted to match input fields */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Header styling */
+.login-box h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input fields styling */
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    width: calc(100% - 20px); /* Ensures input padding fits in container */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button styling */
+#loginForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8c94;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for button */
+#loginForm button:hover {
+    background-color: #ff6363;
+}
