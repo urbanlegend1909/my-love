@@ -35,8 +35,8 @@ body.light-room .led-strip {
 
 /* Bulb styling with smoother color transitions */
 .bulb {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #ff6666;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
@@ -50,11 +50,11 @@ body.light-room .led-strip {
 
 /* Smoother color cycling animation */
 @keyframes smoothColorCycle {
-    0% { background-color: #ff6666; }
-    25% { background-color: #ff9a9e; }
-    50% { background-color: #ffd1dc; }
-    75% { background-color: #ffb6c1; }
-    100% { background-color: #ff80ab; }
+    0% { background-color: #00ffcc; }
+    25% { background-color: #ff00cc; }
+    50% { background-color: #ffff66; }
+    75% { background-color: #66ff66; }
+    100% { background-color: #ff6666; }
 }
 
 /* Centered gift box */
@@ -139,7 +139,7 @@ body.light-room .led-strip {
 .wishes {
     position: absolute;
     transition: transform 1s ease, opacity 1s ease; /* Slower GIF pop-up */
-    width: 100px;
+    width: 130px;
     height: auto;
     transform: translateY(0px);
     opacity: 0;
